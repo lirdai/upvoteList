@@ -1,9 +1,9 @@
-const Button = ({ className, onClick, icon }) => {
+const Button = ({ className, onClick, children }) => {
     return (
         <button
             className={className}
             onClick={onClick}
-        > {icon} </button>
+        > {children} </button>
     );
 };
 

@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import './App.css'
+import styles from './styles.module.css';
 import ButtonList from './components/ButtonList';
+import Button from './components/Button';
+import UpArrow from "./assets/arrow.svg?react";
 
 function App() {
   const [buttonCount, setButtonCount] = useState([1, 1, 1]);
-  const [list, setList] = useState([false, false, false]);
+  const [buttonSelected, setButtonSelected] = useState([false, false, false]);
 
   const toggleButton = (index) => {
-    setList((prev) => {
+    setButtonSelected((prev) => {
       const next = [...prev];
       next[index] = !next[index];
       return next
@@ -23,15 +25,23 @@ function App() {
   };
 
   return (
-    <div className='background'>
-      <div className='foreground'>
-        {buttonCount.map((count, index) => 
-          <ButtonList
-            buttonCount={count}
-            list={list[index]}
-            toggleButton={() => toggleButton(index)}
-            addButton={() => addButton(index)}
-          />
+    <div className={styles.background}>
+      <div className={styles.foreground}>
+        {buttonCount.map((count, index) =>
+          <div className={styles.buttonList} key={index}>
+            <ButtonList
+              buttonCount={count}
+              buttonSelected={buttonSelected[index]}
+              onClick={() => toggleButton(index)}
+            >
+              <UpArrow className={buttonSelected ? styles.selectedArrowColor : styles.defaultArrowColor} />
+            </ButtonList>
+
+            <Button
+              className={`${styles.plusIcon} ${styles.button}`}
+              onClick={() => addButton(index)}
+            > + </Button>
+          </div>
         )}
       </div>
     </div>

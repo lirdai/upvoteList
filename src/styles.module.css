@@ -1,0 +1,33 @@
+.background {
+  background: linear-gradient(to bottom, #ccc, #999);
+  padding: 3px;
+}
+
+.foreground {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.buttonList {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.button {
+  border: none;
+  border-radius: 12px;
+  height: 45px;
+  width: 45px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plusIcon {
+  font-size: 30px;
+  background-color: #e8f1ed;
+  border: none;
+}
