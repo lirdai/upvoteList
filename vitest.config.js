@@ -4,4 +4,10 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  test: {
+    browser: {
+      name: 'chromium',
+      enabled: true,
+    }
+  },
 })

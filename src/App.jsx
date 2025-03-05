@@ -44,7 +44,7 @@ function App() {
     <div className={styles.background}>
       <div className={styles.foreground}>
         {buttonCount.map((count, index) =>
-          <div className={styles.buttonList} key={index}>
+          <div className={styles.buttonList} key={index} data-testid={`${"button_row"}${index}`}>
             <ButtonList
               buttonCount={count}
               buttonSelected={buttonSelected[index]}
