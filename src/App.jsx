@@ -1,12 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './styles.module.css';
 import ButtonList from './components/ButtonList';
 import Button from './components/Button';
 import UpArrow from "./assets/arrow.svg?react";
 
+const INIT_BUTTON_COUNT = [1, 1, 1];
+const INIT_BUTTON_SELECTED = [false, false, false];
+const BUTTON_COUNT_KEY = 'buttonCount';
+const BUTTON_SELECTED_KEY = 'buttonSelected';
+
 function App() {
-  const [buttonCount, setButtonCount] = useState([1, 1, 1]);
-  const [buttonSelected, setButtonSelected] = useState([false, false, false]);
+  const [buttonCount, setButtonCount] = useState(() => {
+    const stored = localStorage.getItem(BUTTON_COUNT_KEY);
+    return stored ? JSON.parse(stored) : INIT_BUTTON_COUNT;
+  });
+  const [buttonSelected, setButtonSelected] = useState(() => {
+    const stored = localStorage.getItem(BUTTON_SELECTED_KEY);
+    return stored ? JSON.parse(stored) : INIT_BUTTON_SELECTED;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(BUTTON_COUNT_KEY, JSON.stringify(buttonCount));
+    localStorage.setItem(BUTTON_SELECTED_KEY, JSON.stringify(buttonSelected));
+  }, [buttonCount, buttonSelected]);
 
   const toggleButton = (index) => {
     setButtonSelected((prev) => {
