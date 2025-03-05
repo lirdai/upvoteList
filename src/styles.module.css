@@ -31,3 +31,11 @@
   background-color: #e8f1ed;
   border: none;
 }
+
+.selectedArrowColor {
+  color: #253CF2
+}
+
+.defaultArrowColor {
+  color: #343A40
+}

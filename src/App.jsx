@@ -34,7 +34,7 @@ function App() {
               buttonSelected={buttonSelected[index]}
               onClick={() => toggleButton(index)}
             >
-              <UpArrow className={buttonSelected ? styles.selectedArrowColor : styles.defaultArrowColor} />
+              <UpArrow className={buttonSelected[index] ? styles.selectedArrowColor : styles.defaultArrowColor} />
             </ButtonList>
 
             <Button
