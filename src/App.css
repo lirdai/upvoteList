@@ -1,0 +1,10 @@
+.background {
+  background: linear-gradient(to bottom, #ccc, #999);
+  padding: 3px;
+}
+
+.foreground {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
